@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@babel/core": "7.4.3",
+    "@babel/plugin-transform-react-jsx": "^7.3.0",
     "@svgr/webpack": "4.1.0",
     "@typescript-eslint/eslint-plugin": "1.6.0",
     "@typescript-eslint/parser": "1.6.0",
@@ -125,7 +126,50 @@
   },
   "babel": {
     "presets": [
-      "react-app"
+      [
+        "@babel/preset-env",
+        {
+          "useBuiltIns": "entry",
+          "corejs": 3,
+          "modules": false,
+          "exclude": [
+            "transform-typeof-symbol"
+          ]
+        }
+      ]
+    ],
+    "plugins": [
+      "babel-plugin-macros",
+      [
+        "@babel/plugin-transform-react-jsx",
+        {
+          "pragma": "React.createElement",
+          "pragmaFrag": "React.Fragment",
+          "throwIfNamespace": true,
+          "useBuiltIns": true
+        }
+      ],
+      [
+        "@babel/plugin-transform-destructuring",
+        {
+          "loose": false,
+          "selectiveLoose": [
+            "useState",
+            "useEffect",
+            "useContext",
+            "useReducer",
+            "useCallback",
+            "useMemo",
+            "useRef",
+            "useImperativeHandle",
+            "useLayoutEffect",
+            "useDebugValue"
+          ]
+        }
+      ],
+      "@babel/plugin-proposal-class-properties",
+      "@babel/plugin-proposal-object-rest-spread",
+      "@babel/plugin-transform-runtime"
     ]
   }
 }
