@@ -1,3 +1,39 @@
+# JSX Decorator sandbox
+
+## How to use
+
+1. Clone patched babel repo
+
+```sh
+git clone git@github.com:edkalina/babel.git
+```
+
+2. Create links for patched packages
+
+```sh
+cd babel/packages/babel-parser
+yarn link
+cd ../babel-plugin-transform-jsx
+yarn link
+```
+
+3. Clone sandbox repo
+
+```sh
+git clone git@github.com:edkalina/jsx-decorator-sandbox.git
+```
+
+4. Link to patched packages
+
+```sh
+yarn link @babel/parser
+yarn link @babel/plugin-transform-jsx
+```
+
+5. Happy hacking )
+
+## ... create-react-app README
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
