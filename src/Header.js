@@ -1,13 +1,16 @@
 import React from "react";
-import { Link } from "react-router-dom";
+
+import { useNavigation } from "./react-router/useNavigation";
 
 export function Header() {
+  const { href } = useNavigation();
+
   return (
-    <header className="App-header" style={{ display: 'flex' }}>
-      <Link to="/">Home</Link>
-      <Link to="/page">Page</Link>
-      <Link to="/about">About</Link>
-      <Link to="/contacts">Contacts</Link>
+    <header className="App-header">
+      <a @href="/">Home</a>
+      <a @href="/page">Page</a>
+      <a @href="/about">About</a>
+      <a @href="/contacts">Contacts</a>
     </header>
   );
 }
